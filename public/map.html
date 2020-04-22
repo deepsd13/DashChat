@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Display a map</title>
+    <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js"></script>
+    <link href="https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css" rel="stylesheet" />
+    <link rel='stylesheet' href='./css//map.css'>
+
+</head>
+
+<body>
+    <div id="map"></div>
+    <div id="menu" class="menu">
+        <label>
+            <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked" />
+            <span class="radio"></span>
+            <span class="label">Street</span>
+        </label><br><br>
+        <label>
+            <input id="light-v10" type="radio" name="rtoggle" value="light" />
+            <span class="radio"></span>
+            <span class="label">Light</span>
+        </label><br><br>
+        <label>
+            <input id="dark-v10" type="radio" name="rtoggle" value="dark" />
+            <span class="radio"></span>
+            <span class="label">Dark</span>
+        </label><br><br>
+        <label>
+            <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors" />
+            <span class="radio"></span>
+            <span class="label">Outdoors</span>
+        </label><br><br>
+        <label>
+            <input id="satellite-v9" type="radio" name="rtoggle" value="satellite" />
+            <span class="radio"></span>
+            <span class="label">Satellite</span>
+        </label><br>
+
+    </div>
+    <!--directions script-->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.0.2/mapbox-gl-directions.js"></script>
+    <link rel="stylesheet" href="./css/mapbox-gl-directons.css" type="text/css">
+
+    <!-- geocoder script -->
+    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.4.2/mapbox-gl-geocoder.min.js"></script>
+    <link rel="stylesheet" href="./css/mapbox-gl-geocoder.css" type="text/css">
+
+    <!-- Promise polyfill script required to use Mapbox GL Geocoder in IE 11 -->
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+
+    <script src="./js/map.js">
+    </script>
+
+</body>
+
+</html>

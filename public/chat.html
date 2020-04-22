@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Chat App</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet' />
+
+</head>
+
+<body>
+    <div id="dialogoverlay"></div>
+    <div id="dialogbox">
+        <div>
+            <div id="dialogboxhead"></div>
+            <hr>
+            <div id="dialogboxbody"></div>
+            <hr>
+            <div id="dialogboxfoot"></div>
+        </div>
+    </div>
+
+    <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <div class="overlay-content">
+            <a id="invite-friends" onclick="expandInvDiv()">Invite Friend</a>
+            <div id="invitation">
+                <label>Enter your friend's Email</label>
+                <input id="invEmail" type='email' placeholder="Enter Email" required><br>
+                <button type="submit" onclick="sendInvitation()">Send Invitation</button>
+                <button onclick="hideInvDiv()"> Cancel </button>
+                <h4 id="result"> </h4>
+
+            </div>
+            <a id='leave-room-button' onclick="leaveRoom()"> Leave Room </button>
+            <a href="/index.html" onclick="logOut()">Logout</a>
+            <a onclick="deleteAccount()">Delete Account</a>
+        </div>
+    </div>
+
+    <div class="chat">
+        <div id='sidebar' class="chat__sidebar">
+            <div>
+            </div>
+        </div>
+        <div class="chat__main">
+            <div id="messages" class="chat__messages"></div>
+
+            <div class="compose">
+                <form id='message-form'>
+                    <input name='message' placeholder="Message" required autocomplete="off">
+                    <button>Send</button>
+                </form>
+                <button id="send-location">Send Location</button> ;
+
+            </div>
+
+        </div>
+
+    </div>
+    <script id="message-template" type="text/html">
+        <div class="message">
+            <p>
+                <span style="color:{{color}}" class="message__name">{{username}}</span>
+                <span class="message__meta">{{createdAt}}</span>
+            </p>
+            <p style="color:white">{{text}}</p>
+        </div>
+    </script>
+
+    <script id="location-message-template" type="text/html">
+        <div class="message">
+            <p>
+                <span class="message__name">{{username}}</span>
+                <span class="message__meta">{{createdAt}}</span>
+            </p>
+
+            <p>
+
+                <a href="{{url}}" target="_blank"> My current Location</a><span style="color:black;font-size:10px"> (Location messages are not saved for security purposes) <span>
+            </p>
+        </div>
+    </script>
+
+    <script id="sidebar-template" type="text/html">
+        <h2 onclick="openNav()" class='room-title'> &#9776; {{room}}
+        </h2>
+        <h3 class='list-title'>Users</h3>
+        <ul class="users">
+            {{#users}}
+            <li> {{username}}</li>
+                {{/users}}
+                </ul>
+    </script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mustache.js/3.0.1/mustache.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/popups.js">
+    </script>
+    <script src="./js/chat.js"></script>
+
+
+</body>
+
+</html>

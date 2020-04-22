@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>Chat App</title>
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+
+
+<body>
+    <div id="dialogoverlay"></div>
+    <div id="dialogbox">
+        <div>
+            <div id="dialogboxhead"></div>
+            <hr>
+            <div id="dialogboxbody"></div>
+            <hr>
+            <div id="dialogboxfoot"></div>
+        </div>
+    </div>
+    <div class="centered-form">
+        <div class="centered-form__box">
+            <form action='chat.html'>
+                <h4>Enter Room Name</h4>
+                <input type="text" id="new-room" placeholder="Enter room name" name="roomName" required>
+                <button id="create-button"> Create </button>
+                <button type="button" id="cancel-button"> Cancel </button>
+                <!-- hidden field to send the user's email to chat.html file -->
+                <input type="hidden" id="email" name="email">
+                <input type="hidden" id="password" name="password">
+
+            </form>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/popups.js">
+    </script>
+    <script src="./js/createRoom.js"></script>
+</body>
+
+</html>

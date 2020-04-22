@@ -1,0 +1,422 @@
+/* General Styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+}
+
+input {
+    font-size: 14px;
+}
+
+body {
+    line-height: 1.4;
+    color: #333333;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+h1 {
+    margin-bottom: 16px;
+}
+
+label {
+    display: block;
+    font-size: 14px;
+    margin-bottom: 8px;
+    color: #777;
+}
+
+input {
+    padding: 12px;
+    outline: none;
+    width: 100%;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 0 16px 0 0;
+    flex-grow: 1;
+}
+
+input[type=submit] {
+    cursor: pointer;
+    padding: 12px;
+    background: #202225;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    transition: background .3s ease;
+}
+
+input[type=submit]:hover {
+    background: #2f3136;
+}
+
+input[type=submit]:disabled {
+    cursor: default;
+    background: #71737a;
+}
+
+button {
+    cursor: pointer;
+    padding: 12px;
+    background: #202225;
+    border-radius: 10px;
+    border: none;
+    color: white;
+    font-size: 16px;
+    transition: background .3s ease;
+}
+
+button:hover {
+    background: #2f3136;
+}
+
+button:disabled {
+    cursor: default;
+    background: #71737a;
+}
+
+a {
+    color: #202225
+}
+
+a:visited {
+    color: #202225
+}
+
+a:hover {
+    color: blue
+}
+
+select {
+    border-radius: 10px;
+}
+
+h4 {
+    margin-top: 20px;
+}
+
+h5 {
+    color: red;
+    display: none;
+    margin-top: -5px;
+    margin-bottom: 5px;
+}
+
+
+/* Join Page Styles */
+
+.centered-form {
+    background: #3b3f45;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.centered-form__box {
+    box-shadow: 0px 0px 17px 1px #1D1F26;
+    background: #F7F7FA;
+    padding: 24px;
+    width: 250px;
+}
+
+.centered-form button {
+    width: 100%;
+}
+
+.centered-form input {
+    margin-bottom: 16px;
+    width: 100%;
+}
+
+
+/* Chat Page Layout */
+
+.chat {
+    display: flex;
+    background: #3b3f45;
+}
+
+.chat__sidebar {
+    height: 100vh;
+    color: white;
+    background: #2f3136;
+    width: 225px;
+}
+
+
+/* Chat styles */
+
+.chat__main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    max-height: 100vh;
+}
+
+.chat__messages {
+    flex-grow: 1;
+    padding: 24px 24px 0 24px;
+    overflow-y: scroll;
+}
+
+
+/* Message Styles */
+
+.message {
+    margin-bottom: 16px;
+}
+
+.message__name {
+    font-weight: 600;
+    font-size: 14px;
+    margin-right: 8px;
+}
+
+.message__meta {
+    color: #777;
+    font-size: 14px;
+}
+
+.message a {
+    color: #0070CC;
+}
+
+
+/* Message Composition Styles */
+
+.compose {
+    display: flex;
+    flex-shrink: 0;
+    margin-top: 16px;
+    padding: 24px;
+}
+
+.compose form {
+    display: flex;
+    flex-grow: 1;
+    margin-right: 16px;
+}
+
+.compose input {
+    border: 1px solid #202225;
+    color: whitesmoke;
+    background: #2f3136;
+    width: 100%;
+    border-radius: 10px;
+    padding: 12px;
+    margin: 0 16px 0 0;
+    flex-grow: 1;
+}
+
+.compose button {
+    font-size: 14px;
+}
+
+
+/* Chat Sidebar Styles */
+
+.room-title {
+    font-weight: 400;
+    font-size: 22px;
+    background: #202225;
+    padding: 24px;
+    cursor: pointer;
+}
+
+.list-title {
+    font-weight: 500;
+    font-size: 18px;
+    margin-bottom: 4px;
+    padding: 12px 24px 0 24px;
+    overflow-y: scroll
+}
+
+.users {
+    list-style-type: none;
+    font-weight: 300;
+    padding: 12px 24px 0 24px;
+}
+
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.overlay a:hover,
+.overlay a:focus {
+    color: #f1f1f1;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
+}
+
+@media screen and (max-height: 450px) {
+    .overlay a {
+        font-size: 20px
+    }
+    .overlay .closebtn {
+        font-size: 40px;
+        top: 15px;
+        right: 35px;
+    }
+}
+
+.hamburger-icon span {
+    cursor: pointer;
+    color: white;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    display: block;
+    background: black;
+    position: absolute;
+}
+
+select {
+    width: 100%;
+    cursor: pointer;
+    padding: 12px;
+    border: none;
+    color: black;
+    font-size: 16px;
+    font-family: Helvetica, Arial, sans-serif;
+    transition: background .3s ease;
+    background-color: gainsboro;
+}
+
+#join-button {
+    margin-top: 10px;
+}
+
+#available-rooms {
+    margin-bottom: 20px;
+}
+
+#cancel-button {
+    margin-top: 10px;
+}
+
+#create-account {
+    margin-bottom: 10px;
+}
+
+#dialogoverlay {
+    display: none;
+    opacity: 0;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background: #FFF;
+    z-index: 10;
+    height: 100%;
+    width: 100%;
+}
+
+#dialogbox {
+    height: 270px;
+    margin: auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    max-width: 700px;
+    display: none;
+    box-shadow: 0px 0px 17px 1px #1D1F26;
+    padding: 24px;
+    width: 450px;
+    background: white;
+    border-radius: 15px;
+    z-index: 10;
+}
+
+#dialogbox>div {
+    background: #FFF;
+    margin: 8px;
+}
+
+#dialogbox>div>#dialogboxhead {
+    font-size: 19px;
+    padding: 10px;
+}
+
+#dialogbox>div>#dialogboxbody {
+    padding: 20px;
+}
+
+#dialogbox>div>#dialogboxfoot {
+    padding: 10px;
+    text-align: right;
+}
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #2f3136;
+    border-radius: 15px;
+    margin: 10px;
+    border: solid 3px transparent;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #202225;
+    border-radius: 15px;
+    border: solid 3px transparent;
+}
+
+#invEmail {
+    width: 250px;
+    margin-bottom: 10px;
+}
+
+#invitation {
+    display: none;
+}
