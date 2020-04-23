@@ -3,33 +3,68 @@
 
 <head>
     <title>Chat App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <div class="centered-form">
-        <div class="centered-form__box">
-            <h1>Log In</h1>
-            <form action="join.html">
-                <label>Email</label>
-                <input type="email" id="LIemail" name="email" placeholder="email" required>
-                <label>Password</label>
-                <input type="password" id="LIpassword" name="password" placeholder="password" required>
-                <button type="submit" id="log-in"> Log In </button>
-                <h5 id="error">Unable to login! Please try again</h5>
-                <h4>No account? <a href="signup.html"> Sign up here </a></h4>
-                <h4><a href="forgotPassword.html">Forgot Password?</a></h4>
 
+    <img src="img/favicon.png" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;">
+    <div class='box'>
+        <div class='box-form'>
+            <div class='box-login-tab'></div>
+            <div class='box-login-title'>
+                <div class='i i-login'></div>
+                <h2>LOGIN</h2>
+            </div>
+            <form action="/join.html">
+                <div class='box-login'>
+                    <div class='fieldset-body' id='login_form'>
+                        <a onclick="openLoginInfo();" class='b b-form i i-more'></a>
+                        <p class="field">
+                            <label for='user'>E-MAIL</label>
+                            <input type='email' id='LIemail' name='email' />
+                        </p>
+
+                        <p class='field'>
+                            <label for='password'>PASSWORD</label>
+                            <input type='password' id='LIpassword' name='password' title='Password' />
+                        </p>
+
+                        <input type='submit' id='log-in' value='LOGIN' title='LOGIN' />
+                    </div>
+                </div>
             </form>
         </div>
+        <div class='box-info'>
+            <p>
+                <a onclick="closeLoginInfo();" class='b b-info i i-left' title='Back to Sign In'></a>
+            </p>
+            <form>
+                <button formaction='forgotPassword.html' class='b-support' title='Forgot Password?'> Forgot Password?</button>
+
+                <div class='line-wh'></div>
+                <button formaction='signup.html' class='b-cta' title='Sign up now!'> CREATE ACCOUNT</button>
+            </form>
+        </div>
+
+
     </div>
+    </form>
+
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
     <script src="/socket.io/socket.io.js"></script>
     <script src="./js/popups.js">
     </script>
+
     <script src="./js/login.js"></script>
+
 </body>
 
 </html>

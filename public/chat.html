@@ -5,6 +5,7 @@
     <title>Chat App</title>
     <link rel="icon" href="img/favicon.png">
     <link rel="stylesheet" href="css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v1.9.0/mapbox-gl.css' rel='stylesheet' />
 
@@ -25,18 +26,23 @@
     <div id="myNav" class="overlay">
         <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="overlay-content">
-            <a id="invite-friends" onclick="expandInvDiv()">Invite Friend</a>
+            <a class="overlay_a" id='about'> About </a>
+            <h4 style="display: none;" id='about_desc'>DashChat is a real time chat application developed in node js enviornment with socket.io. It offers features such as chatting with your friends in rooms, inviting your friends to the application, email notifications, sending your current location
+                and many more!<br>
+                <a class="about_a" href="https://github.com/deepsd13/DashChat">Click Here</a> to view the source code.<br>
+                <a class="about_a" href="https://linktr.ee/deepsd"> Click here</a> to contact the developer.<br>
+            </h4>
+            <a class="overlay_a" id="invite-friends" onclick="expandInvDiv()">Invite Friend</a>
             <div id="invitation">
                 <label>Enter your friend's Email</label>
                 <input id="invEmail" type='email' placeholder="Enter Email" required><br>
                 <button type="submit" onclick="sendInvitation()">Send Invitation</button>
                 <button onclick="hideInvDiv()"> Cancel </button>
                 <h4 id="result"> </h4>
-
             </div>
-            <a id='leave-room-button' onclick="leaveRoom()"> Leave Room </button>
-            <a href="/index.html" onclick="logOut()">Logout</a>
-            <a onclick="deleteAccount()">Delete Account</a>
+            <a class="overlay_a" id='leave-room-button' onclick="leaveRoom()"> Leave Room </button>
+            <a class="overlay_a" href="/index.html" onclick="logOut()">Logout</a>
+            <a class="overlay_a" onclick="deleteAccount()">Delete Account</a>
         </div>
     </div>
 

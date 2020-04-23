@@ -44,9 +44,15 @@ const sendInvitationEmail = (email, name, room) => {
         json: true
     };
 
-    request(options, function(error, response, body) {
-        if (error) throw new Error(error);
-    });
+    try {
+        request(options, function(error, response, body) {
+            if (error) throw new Error(error);
+        })
+
+    } catch (e) {
+        console.log(e)
+    }
+
 
 }
 

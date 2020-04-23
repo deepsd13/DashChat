@@ -4,20 +4,40 @@
 <head>
     <title>Chat App</title>
     <link rel="icon" href="img/favicon.png">
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-    <div class="centered-form">
-        <div class="centered-form__box">
-            <h1> Success!</h1>
-            <p> You have successfully joined the room! <a href='index.html'>Click here</a> to start chatting!</p>
+
+    <img src="img/favicon.png" style=" display: block;
+    margin-left: auto;
+    margin-right: auto;">
+    <div class='box'>
+        <div class='box-form'>
+            <div class='box-login-tab'></div>
+            <div class='box-login-title'>
+                <div class='i i-login'></div>
+                <h2>SUCCESS!</h2>
+            </div>
+            <div class='box-login'>
+                <div class='fieldset-body' id='login_form'>
+                    <p class="field">
+                        <h1> Success!</h1>
+                        <p> You have successfully joined the room! <a href='index.html'>Click here</a> to start chatting!</p>
+                    </p>
+                </div>
+            </div>
         </div>
+
+
     </div>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="./js/joinRoom.js">
+    </script>
 </body>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.6.0/qs.min.js"></script>
-<script src="/socket.io/socket.io.js"></script>
-<script src="./js/joinRoom.js">
-</script>
 
 </html>

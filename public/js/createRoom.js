@@ -1,10 +1,8 @@
 const socket = io()
 
-const createAccButton = document.querySelector('#create-account')
 const roomInput = document.querySelector('#new-room')
 const createButton = document.querySelector('#create-button')
 const cancelButton = document.querySelector('#cancel-button')
-
 
 
 //template
@@ -17,7 +15,6 @@ document.querySelector('#password').value = password
 
 cancelButton.addEventListener('click', () => {
     history.back()
-
 })
 
 
@@ -28,8 +25,20 @@ createButton.addEventListener('click', (e) => {
     const roomName = roomInput.value
     socket.emit('createRoom', { email, roomName }, (error) => {
         if (error) {
-            alert(error)
-            location.href = `/join.html?email=${email}&password=${password}/`
+            location = '/404.html'
         }
     })
 })
+
+function validateRoom() {
+    const roomName = roomInput.value
+    socket.emit('validateRoom', { roomName }, (error) => {
+        if (error) {
+            document.querySelector('#error').style.display = 'block'
+            createButton.disabled = true
+        } else {
+            document.querySelector('#error').style.display = 'none'
+            createButton.disabled = false
+        }
+    })
+}

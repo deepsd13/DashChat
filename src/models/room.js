@@ -40,22 +40,16 @@ const roomSchema = new mongoose.Schema({
 
 roomSchema.methods.addUser = async function(user) {
     const room = this
-        // room.users[2] = user
-        // console.log(room.users)
     room.users = room.users.concat({ user: user })
-        // room.markModified('users')
-        // await room.save()
+
 
 
     return user
 }
 roomSchema.methods.addMsg = async function(msg) {
     const room = this
-        // room.users[2] = user
-        // console.log(room.users)
     room.messages = room.messages.concat({ message: msg })
     room.markModified('messages')
-        // await room.save()
     return msg
 }
 
@@ -80,8 +74,6 @@ roomSchema.methods.removeUser = async function(this_user) {
     const index = room.users.findIndex((user) => (this_user.username === user.user.username))
 
     if (index !== 1) {
-        console.log(index)
-
         return room.users.splice(index, 1)[0]
     }
 }

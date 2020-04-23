@@ -73,13 +73,37 @@ function validatePassword() {
 //signin process
 if (logInButton !== null) {
     logInButton.addEventListener('click', (e) => {
+
         const email = document.querySelector('#LIemail').value
         const password = document.querySelector('#LIpassword').value
 
+        console.log(email, password)
         socket.emit('signin', { email, password }, (error) => {
             if (error) {
                 location = '/invalidLogin.html'
             }
         })
     })
+}
+
+
+function openLoginInfo() {
+
+
+    document.querySelector('.b-form').style.opacity = 0.01
+    document.querySelector('.box-form').style.left = -37 + '%'
+    document.querySelector('.box-info').style.right = -37 + '%'
+
+}
+
+function closeLoginInfo() {
+    document.querySelector('.b-form').style.opacity = 1
+    document.querySelector('.box-form').style.left = 0 + 'px'
+    document.querySelector('.box-info').style.right = -5 + 'px'
+
+
+
+    // $('.b-form').css("opacity", "1");
+    // $('.box-form').css("left", "0px");
+    // $('.box-info').css("right", "-5px");
 }

@@ -5,6 +5,7 @@ const $messageFormInput = document.querySelector('input')
 const $messageFormButton = $messageForm.querySelector('button')
 const $sendLocationButton = document.querySelector('#send-location')
 const $messages = document.querySelector('#messages')
+const $about_desc = document.querySelector('#about_desc')
 
 
 
@@ -234,16 +235,28 @@ function expandInvDiv() {
 
 function hideInvDiv() {
     document.querySelector('#invitation').style.display = 'none'
+    document.querySelector('#result').style.display = 'none'
 }
 
 function sendInvitation() {
     socket.emit('sendInvitationEmail', { email: document.querySelector('#invEmail').value, roomName }, (error) => {
         if (error) {
+            document.querySelector('#result').style.display = 'block'
             document.querySelector('#result').style.color = 'red'
             document.querySelector('#result').innerHTML = 'Enter a valid Email! Email you enter must be a current user of the application! ;)'
         } else {
+            document.querySelector('#result').style.display = 'block'
             document.querySelector('#result').style.color = 'green'
             document.querySelector('#result').innerHTML = 'Email sent! ;)'
         }
     })
 }
+
+document.querySelector('#about').addEventListener('click', () => {
+    console.log($about_desc.style.display)
+    if ($about_desc.style.display === 'block') {
+        $about_desc.style.display = 'none'
+    } else {
+        $about_desc.style.display = 'block'
+    }
+})

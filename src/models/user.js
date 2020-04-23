@@ -86,7 +86,6 @@ userSchema.methods.removeRoom = async function(room) {
 
     const user = this
     const index = user.rooms.findIndex((this_room) => this_room.room.name === room.name)
-    console.log(index)
     if (index !== 1) {
         console.log(index)
 

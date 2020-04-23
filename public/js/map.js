@@ -1,4 +1,4 @@
-mapboxgl.accessToken = process.env.MAPBOXGL_ACCESS_TOKEN;
+mapboxgl.accessToken = 'pk.eyJ1IjoiZGVlcHNkIiwiYSI6ImNrNjhhNTB1NzAydm0zZ3Fqa2VtN3g0cW0ifQ.-wLk4cG0qCxsHpQbEEMDBg';
 
 var {
     latitude,

@@ -18,23 +18,8 @@ const io = socketio(server)
 const port = process.env.PORT
 const publicDirectoryPath = path.join(__dirname, '../public')
 
-// // app.set('view engine', 'html')
-// const viewsPath = path.join(__dirname, '../templates/views')
-
-// app.set('views', viewsPath)
-// app.engine('html', require('ejs').renderFile);
-// app.set('view engine', 'ejs');
 
 app.use(express.static(publicDirectoryPath))
-
-// app.get('', (req, res) => {
-//     res.render('index.html')
-// })
-
-// app.post('/join.html', (req, res) => {
-//     console.log
-//     res.render('join.html')
-// })
 
 io.on('connection', (socket) => {
 
@@ -122,7 +107,6 @@ io.on('connection', (socket) => {
             }
 
             await room.save()
-                // console.log(room.users)
 
 
             io.to(room.name).emit('roomData', {
@@ -144,7 +128,6 @@ io.on('connection', (socket) => {
         const user = await User.findOne({ email })
         authenticate(user)
         const room = await Room.findOne({ name: roomName })
-        console.log(room)
         const msgData = generateMessage(user.username, message)
         const msg = {
             username: msgData.username,
@@ -204,8 +187,9 @@ io.on('connection', (socket) => {
 
     socket.on('deleteAccount', async({ email }, callback) => {
         try {
-            const user = User.findOne({ email })
+            const user = await User.findOne({ email })
             authenticate(user)
+            console.log(user.username)
             sendCancellationEmail(email, user.username)
             await User.deleteOne({ email })
         } catch (e) {
@@ -242,7 +226,6 @@ io.on('connection', (socket) => {
     socket.on('resetPassword', async({ email, password }, callback) => {
         console.log('here')
         try {
-            console.log(email, password)
             const user = await User.updateOne({ email: email }, { $set: { password: await bcrypt.hash(password, 8) } })
             callback()
         } catch (e) {
@@ -251,7 +234,6 @@ io.on('connection', (socket) => {
     })
 
     socket.on('findEmail', async({ email }, callback) => {
-        console.log(email)
         try {
             const user = await User.findOne({ email })
             if (!user) {
@@ -264,7 +246,6 @@ io.on('connection', (socket) => {
     })
 
     socket.on('sendInvitationEmail', async({ email, roomName }, callback) => {
-        console.log(email)
         try {
             const user = await User.findOne({ email })
             if (!user) {
@@ -278,6 +259,22 @@ io.on('connection', (socket) => {
             callback(e)
         }
     })
+
+    socket.on('validateRoom', async({ roomName }, callback) => {
+
+        try {
+            const room = await Room.findOne({ name: roomName })
+            if (room) {
+                throw new Error()
+            }
+            callback()
+        } catch (e) {
+            callback(e)
+        }
+
+
+    })
+
 
 })
 

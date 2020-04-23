@@ -12,10 +12,11 @@ body {
 
 p {
     font-family: "Bevan", cursive;
-    font-size: 70px;
+    font-size: 40px;
     margin: 10vh 0 0;
     text-align: center;
     letter-spacing: 5px;
+    margin-bottom: 30px;
     background-color: black;
     color: transparent;
     text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.1);

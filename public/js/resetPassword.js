@@ -4,7 +4,6 @@ var confirm_password = document.getElementById("confirm_password");
 const btn = document.querySelector('#btn')
 
 function validatePassword() {
-    console.log('one')
     const {
         email
     } = Qs.parse(location.search, {
@@ -20,8 +19,9 @@ function validatePassword() {
             if (error) {
                 console.log(error)
             } else {
-                console.log('jd')
-                document.querySelector('#success').style.display = 'block'
+                if (password.value !== '') {
+                    document.querySelector('#success').style.display = 'block'
+                }
             }
         })
 
