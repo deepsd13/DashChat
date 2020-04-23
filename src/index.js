@@ -132,7 +132,7 @@ io.on('connection', (socket) => {
         const msg = {
             username: msgData.username,
             text: msgData.text,
-            createdAt: moment(message.createdAt).format('h:mm a')
+            createdAt: moment(message.createdAt).format('MMM Do YY, h:mm a')
         }
         room.addMsg(msg)
         await room.save()
