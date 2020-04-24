@@ -405,7 +405,7 @@ h6 {
         display: block;
     }
     .chat__sidebar {
-        position: fixed;
+        /* position: fixed; */
         width: 100%;
         height: 10vh;
     }
@@ -416,6 +416,9 @@ h6 {
     }
     h6 {
         text-align: right;
+    }
+    .chat__main {
+        height: 90vh;
     }
     .users_icon {
         display: block;

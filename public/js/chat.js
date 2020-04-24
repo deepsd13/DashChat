@@ -138,7 +138,6 @@ socket.on('roomData', async({ room, user }) => {
             $messages.insertAdjacentHTML('beforeend', htmlMessages)
 
         })
-        autoScroll()
     }
 
 })
