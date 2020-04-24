@@ -72,17 +72,19 @@ button {
     transition: background .3s ease;
 }
 
-#sendBtn,
+#sendBtn {
+    width: 57px;
+    height: 47px;
+}
+
 #send-location {
-    width: 40px;
-    height: 40px;
+    width: 47px;
+    height: 47px;
 }
 
 #sendBtn:hover,
 #send-location:hover {
     cursor: pointer;
-    width: 45px;
-    height: 45px;
 }
 
 button:hover {
@@ -174,11 +176,14 @@ h4 {
 /* Message Composition Styles */
 
 .compose {
+    background: transparent;
     display: flex;
     flex-shrink: 0;
     margin-top: 16px;
-    padding: 24px;
-    ;
+    padding: 5px;
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
 }
 
 .compose form {
@@ -192,7 +197,7 @@ h4 {
     color: whitesmoke;
     background: #2f3136;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 25px;
     padding: 12px;
     margin: 0 16px 0 0;
     flex-grow: 1;
