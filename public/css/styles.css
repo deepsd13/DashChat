@@ -118,7 +118,7 @@ h4 {
 /* Chat styles */
 
 .chat__main {
-    flex-grow: 1;
+    /* flex-grow: 1; */
     display: flex;
     flex-direction: column;
     max-height: 100vh;
@@ -427,5 +427,11 @@ h6 {
         position: relative;
         z-index: 1;
         background-color: #202225;
+    }
+}
+
+@media only screen and (max-height: 550px) {
+    .chat__main {
+        width: 100%;
     }
 }
