@@ -129,10 +129,11 @@ io.on('connection', (socket) => {
         authenticate(user)
         const room = await Room.findOne({ name: roomName })
         const msgData = generateMessage(user.username, message)
+        const time = moment(message.createdAt).format('MMM Do YY, h:mm a') + ' (EST)'
         const msg = {
             username: msgData.username,
             text: msgData.text,
-            createdAt: moment(message.createdAt).format('MMM Do YY, h:mm a')
+            createdAt: time
         }
         room.addMsg(msg)
         await room.save()
