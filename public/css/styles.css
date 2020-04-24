@@ -73,7 +73,7 @@ button {
 }
 
 #sendBtn {
-    width: 57px;
+    width: 47px;
     height: 47px;
 }
 
@@ -129,7 +129,7 @@ h4 {
 .chat__messages {
     flex-grow: 1;
     padding: 24px 24px 0 24px;
-    overflow-y: scroll;
+    overflow-y: scroll
 }
 
 .users_icon {
@@ -181,9 +181,6 @@ h4 {
     flex-shrink: 0;
     margin-top: 16px;
     padding: 5px;
-    position: fixed;
-    bottom: 0px;
-    width: 100%;
 }
 
 .compose form {
@@ -408,7 +405,8 @@ h6 {
         display: block;
     }
     .chat__sidebar {
-        width: auto;
+        position: fixed;
+        width: 100%;
         height: 10vh;
     }
     .users_list {

@@ -43,6 +43,7 @@ const autoScroll = () => {
 
 
 
+
 socket.emit('join', { email, roomName }, (error) => {
     if (error) {
         location.href = '/404.html'
@@ -137,6 +138,7 @@ socket.on('roomData', async({ room, user }) => {
             $messages.insertAdjacentHTML('beforeend', htmlMessages)
 
         })
+        autoScroll()
     }
 
 })
