@@ -261,13 +261,13 @@ function sendInvitation() {
     })
 }
 
-document.querySelector('#about').addEventListener('click', () => {
-    if ($about_desc.style.display === 'block') {
-        $about_desc.style.display = 'none'
-    } else {
-        $about_desc.style.display = 'block'
-    }
-})
+// document.querySelector('#about').addEventListener('click', () => {
+//     if ($about_desc.style.display === 'block') {
+//         $about_desc.style.display = 'none'
+//     } else {
+//         $about_desc.style.display = 'block'
+//     }
+// })
 
 
 function openUsersList() {
