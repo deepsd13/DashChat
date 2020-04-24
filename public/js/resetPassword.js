@@ -33,7 +33,6 @@ if (btn !== null) {
 
     btn.addEventListener('click', (e) => {
         const email = document.querySelector('#email').value
-        console.log(email)
         socket.emit('findEmail', { email }, (error) => {
             if (error) {
                 location = '/accountNotFound.html'

@@ -1,8 +1,8 @@
 const socket = io()
     //Elements
 const $messageForm = document.querySelector('#message-form')
-const $messageFormInput = document.querySelector('input')
-const $messageFormButton = $messageForm.querySelector('button')
+const $messageFormInput = document.querySelector('#message')
+const $messageFormButton = $messageForm.querySelector('#sendBtn')
 const $sendLocationButton = document.querySelector('#send-location')
 const $messages = document.querySelector('#messages')
 const $about_desc = document.querySelector('#about_desc')
@@ -66,7 +66,6 @@ socket.on('welcomeMessage', (message) => {
 
 socket.on('message', ({ msg, user }) => {
 
-    // console.log(email, user.email, msg)
     function getRandomColor() {
         var letters = ['#3366ff', '#66ccff', '#ff33cc', '#00cc00', '#ffff00', '#339966', '#ff3300', '#cc0066', '#669999', '#ccffff', '#9966330', '#99ff33'];
         var color = letters[Math.floor(Math.random() * 11)];
@@ -74,7 +73,6 @@ socket.on('message', ({ msg, user }) => {
     }
 
     const color = getRandomColor()
-    console.log(color)
     const message = {
         username: msg.username,
         text: msg.text,
@@ -82,7 +80,6 @@ socket.on('message', ({ msg, user }) => {
         color: color
     }
     const html = Mustache.render(messageTemplate, message)
-    console.log(html)
     $messages.insertAdjacentHTML('beforeend', html)
     autoScroll()
 
@@ -144,14 +141,30 @@ socket.on('roomData', async({ room, user }) => {
 
 })
 
-
-
 $messageForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
     $messageFormButton.setAttribute('disabled', 'disabled')
 
     const message = e.target.elements.message.value
+    socket.emit('sendMessage', { message, email, roomName }, (error) => {
+        if (error) {
+            Alert.render(error)
+        }
+        $messageFormButton.removeAttribute('disabled')
+        $messageFormInput.value = ''
+        $messageFormInput.focus()
+        console.log('Delivered')
+    })
+})
+
+
+$messageFormButton.addEventListener('click', (e) => {
+    e.preventDefault()
+
+    $messageFormButton.setAttribute('disabled', 'disabled')
+
+    const message = $messageFormInput.value
     socket.emit('sendMessage', { message, email, roomName }, (error) => {
         if (error) {
             Alert.render(error)
@@ -195,12 +208,7 @@ function emitAuthenticateError() {
 function leaveRoom() {
     emitAuthenticateError()
     const cnfrm = Confirm.render('Do you really want to leave this room? You will no longer' +
-            ' be a part of this group but, ofcourse you can join in again :)', 'leaveRoom', email, password)
-        // console.log(cnfrm)
-        // if (cnfrm == true) {
-        //     window.location = `/join.html?email=${email}&password=${password}`
-        //     socket.emit('leaveRoom', { email, roomName })
-        // }
+        ' be a part of this group but, ofcourse you can join in again :)', 'leaveRoom', email, password)
 }
 
 
@@ -253,7 +261,6 @@ function sendInvitation() {
 }
 
 document.querySelector('#about').addEventListener('click', () => {
-    console.log($about_desc.style.display)
     if ($about_desc.style.display === 'block') {
         $about_desc.style.display = 'none'
     } else {

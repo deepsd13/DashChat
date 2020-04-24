@@ -72,6 +72,19 @@ button {
     transition: background .3s ease;
 }
 
+#sendBtn,
+#send-location {
+    width: 40px;
+    height: 40px;
+}
+
+#sendBtn:hover,
+#send-location:hover {
+    cursor: pointer;
+    width: 45px;
+    height: 45px;
+}
+
 button:hover {
     background: #2f3136;
 }

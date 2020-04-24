@@ -76,8 +76,6 @@ if (logInButton !== null) {
 
         const email = document.querySelector('#LIemail').value
         const password = document.querySelector('#LIpassword').value
-
-        console.log(email, password)
         socket.emit('signin', { email, password }, (error) => {
             if (error) {
                 location = '/invalidLogin.html'
