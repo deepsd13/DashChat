@@ -410,9 +410,6 @@ h6 {
         overflow: hidden;
         transition: max-height 0.2s ease-out;
     }
-    .chat__main {
-        height: 90vh;
-    }
     h6 {
         text-align: right;
     }
