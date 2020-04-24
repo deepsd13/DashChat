@@ -260,3 +260,13 @@ document.querySelector('#about').addEventListener('click', () => {
         $about_desc.style.display = 'block'
     }
 })
+
+
+function openUsersList() {
+    const userslist = document.querySelector('.users_list')
+    if (userslist.style.maxHeight) {
+        userslist.style.maxHeight = null;
+    } else {
+        userslist.style.maxHeight = userslist.scrollHeight + "px";
+    }
+}

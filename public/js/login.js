@@ -88,22 +88,13 @@ if (logInButton !== null) {
 
 
 function openLoginInfo() {
-
-
     document.querySelector('.b-form').style.opacity = 0.01
     document.querySelector('.box-form').style.left = -37 + '%'
     document.querySelector('.box-info').style.right = -37 + '%'
-
 }
 
 function closeLoginInfo() {
     document.querySelector('.b-form').style.opacity = 1
     document.querySelector('.box-form').style.left = 0 + 'px'
     document.querySelector('.box-info').style.right = -5 + 'px'
-
-
-
-    // $('.b-form').css("opacity", "1");
-    // $('.box-form').css("left", "0px");
-    // $('.box-info').css("right", "-5px");
 }

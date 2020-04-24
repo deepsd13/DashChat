@@ -114,7 +114,7 @@ io.on('connection', (socket) => {
                 user
             })
             if (room.users.length === 1 && room.messages.length === 0) {
-                socket.emit('welcomeMessage', generateWelcomeMessage('Admin', `${room.name} has been created.Looks like there's only you in this room! Ask your friends to join the room to start chatting.`))
+                socket.emit('welcomeMessage', generateWelcomeMessage('Admin', `${room.name} has been created.Looks like there's only you in this room! Invite your friends to join the room to start chatting.`))
             }
 
         } catch (e) {
