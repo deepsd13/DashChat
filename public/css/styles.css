@@ -178,6 +178,9 @@ h4 {
     flex-shrink: 0;
     margin-top: 16px;
     padding: 24px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
 
 .compose form {
@@ -400,6 +403,7 @@ h6 {
 @media only screen and (max-width: 600px) {
     .chat {
         display: block;
+        height: 100vh;
     }
     .chat__sidebar {
         width: auto;
@@ -410,9 +414,9 @@ h6 {
         overflow: hidden;
         transition: max-height 0.2s ease-out;
     }
-    .chat__main {
+    /* .chat__main {
         height: 90vh;
-    }
+    } */
     h6 {
         text-align: right;
     }
