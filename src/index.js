@@ -21,8 +21,9 @@ const publicDirectoryPath = path.join(__dirname, '../public')
 
 app.use(express.static(publicDirectoryPath))
 
-io.on('connection', (socket) => {
 
+
+io.on('connection', (socket) => {
 
     socket.on('signup', async({ username, email, password, }, callback) => {
         try {
