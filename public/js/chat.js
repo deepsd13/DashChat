@@ -7,16 +7,14 @@ const $sendLocationButton = document.querySelector('#send-location')
 const $messages = document.querySelector('#messages')
 const $about_desc = document.querySelector('#about_desc')
 
-
-
-//Templates
+//Templates 
 const messageTemplate = document.querySelector('#message-template').innerHTML
 const locationMessageTemplate = document.querySelector('#location-message-template').innerHTML
 const sidebarTemplate = document.querySelector('#sidebar-template').innerHTML
 const $senderMessageTemplate = document.querySelector('#sender-message-template')
 
 
-//options
+//options from the query
 const { email, roomName, password } = Qs.parse(location.search, { ignoreQueryPrefix: true })
 const autoScroll = () => {
     //new message element
